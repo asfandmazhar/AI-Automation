@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f7f7;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --primary: #7E3BED;
+  --primary-foreground: #ffffff;
+  --secondary: #6425C4;
+  --secondary-foreground: #ffffff;
+  --border: #e5e7eb;
+  --muted: #f1f1f4;
+  --muted-foreground: #6b7280;
+  --success: #9B5CF5;
+  --success-foreground: #ffffff;
+  --error: #F0637C;
+  --warning: #F5A76C;
+  --info: #7E3BED;
+  --accent-lime: #C6FF34;
+  --accent-violet: #7E3BED;
+  --accent-black: #000000;
+  --accent-white: #ffffff;
+  --font-family: "Inter", sans-serif;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #f7f7f7;
+  --card: #000000;
+  --card-foreground: #f7f7f7;
+  --surface: #000000;
+  --surface-foreground: #f7f7f7;
+  --primary: #C6FF34;
+  --primary-foreground: #000000;
+  --secondary: #A8D92B;
+  --secondary-foreground: #000000;
+  --border: #262626;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --success: #C6FF34;
+  --success-foreground: #000000;
+  --error: #F0637C;
+  --warning: #F5A76C;
+  --info: #9B5CF5;
+  --accent-lime: #C6FF34;
+  --accent-violet: #9B5CF5;
+  --accent-black: #ffffff;
+  --accent-white: #000000;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+@layer components {
+  * {
+    @apply m-0 p-0 box-border font-[family-name:var(--font-family)];
+  }
+
+  html {
+    @apply leading-6 antialiased;
+  }
+
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] transition-colors duration-300;
+  }
+
+  h1 {
+    @apply text-2xl md:text-3xl xl:text-4xl font-bold text-[color:var(--foreground)];
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl xl:text-3xl font-bold text-[color:var(--foreground)];
+  }
+
+  h3 {
+    @apply text-lg md:text-xl xl:text-2xl font-semibold text-[color:var(--foreground)];
+  }
+
+  h4 {
+    @apply text-base md:text-lg font-semibold text-[color:var(--foreground)];
+  }
+
+  h5 {
+    @apply text-sm md:text-base font-semibold text-[color:var(--foreground)];
+  }
+
+  h6 {
+    @apply text-xs md:text-sm font-semibold text-[color:var(--foreground)];
+  }
+
+  p {
+    @apply text-sm md:text-base text-[color:var(--muted-foreground)] leading-relaxed;
+  }
+
+  span {
+    @apply text-sm text-[color:var(--foreground)];
+  }
+
+  a {
+    @apply text-[color:var(--primary)] hover:text-[color:var(--secondary)] transition-colors duration-200 cursor-pointer;
+  }
+
+  .spacing {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .round {
+    @apply rounded-full;
+  }
+
+  .btn {
+    @apply flex items-center justify-center gap-2 rounded-xl bg-[color:var(--primary)] px-4 py-2 font-medium text-[color:var(--primary-foreground)] transition-colors duration-200 hover:bg-[color:var(--secondary)];
+  }
+
+  .border-btn {
+    @apply flex items-center justify-center gap-2 rounded-xl border border-[color:var(--primary)] bg-transparent px-4 py-2 font-medium text-[color:var(--primary)] transition-colors duration-200 hover:bg-[color:var(--primary)] hover:text-[color:var(--primary-foreground)];
+  }
+
+  .border {
+    @apply border border-[color:var(--border)];
+  }
+}
